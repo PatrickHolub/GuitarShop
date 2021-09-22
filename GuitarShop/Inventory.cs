@@ -30,27 +30,14 @@ namespace GuitarShop
             List<Guitar> searchResults = new List<Guitar>();
             foreach(Guitar g in guitars)
             {
-                if (!searchGuitar.Model.ToUpper().Equals(g.guitarSpec.Model.ToUpper()) && !searchGuitar.Model.Equals("") && searchGuitar.Model != null) //searches if it DOES NOT HAVE, if doesn't have it
-                {                                                                                                       //it will continue with a new iteratio of the loop
-                    continue;
+                if(g.guitarSpec.matches(searchGuitar) == true){ //We moved the search method to the GuitarSpec class, in which we can now call
+                                                                //in order to serch through our list of guitars in order to find a match
+                                                                //we have now loosely coupled the search method to guitarspec, so if we add 
+                                                                //attributes we only have to make a change to one class
+                
+                    searchResults.Add(g);
                 }
-                if(!searchGuitar.GuitarType.Equals(g.guitarSpec.GuitarType) && !searchGuitar.GuitarType.Equals("") && searchGuitar.GuitarType != null)
-                {
-                    continue;
-                }
-                if(!searchGuitar.Backwood.Equals(g.guitarSpec.Backwood) && !searchGuitar.Backwood.Equals("") && searchGuitar.Backwood != null)
-                {
-                    continue;
-                }
-                if (!searchGuitar.Topwood.Equals(g.guitarSpec.Topwood) && !searchGuitar.Topwood.Equals("") && searchGuitar.Topwood != null)
-                {
-                    continue;
-                }
-                if (!searchGuitar.GuitarBuilder.Equals(g.guitarSpec.GuitarBuilder) && !searchGuitar.GuitarBuilder.Equals("") && searchGuitar.GuitarBuilder != null)
-                {
-                    continue;
-                }
-                searchResults.Add(g);
+                
                     
             }
             

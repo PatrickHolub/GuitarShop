@@ -18,12 +18,16 @@ namespace GuitarShop
                 2) Each object (or class) should represent a single concept [Cohesion Principle]. Always try to achieve 
                    high coehesion in our software. 
                 3) Whenever object has unused properties, then try to simplify the object
+
+            ALWAYS ATTEMPT TO ACHIEVE HIGH COHESION AND LOW COUPLING (DE COUPLING)
+
+
             */
         {
             Inventory inventory = new Inventory();
             initalizeInventory(inventory);
 
-            GuitarSpec customerChoice = new GuitarSpec("Stratocaster", Type.ACOUSTIC, Wood.ROSEWOOD, Wood.MAPLE, Builder.FENDER);
+            GuitarSpec customerChoice = new GuitarSpec("stratocaster", Type.ACOUSTIC, Wood.ROSEWOOD, Wood.MAPLE, 5, Builder.FENDER);
 
             List<Guitar> result = inventory.search(customerChoice);
             if(result.Count != 0)
@@ -40,8 +44,8 @@ namespace GuitarShop
 
         public static void initalizeInventory(Inventory inventory)
         {
-            inventory.addGuitar(new Guitar("A124", 569.99, new GuitarSpec( "stratocaster",Type.ACOUSTIC, Wood.ROSEWOOD, Wood.MAPLE, Builder.FENDER))); //these are using the enum modifiers to where the attibutes can only be of a specific type
-            inventory.addGuitar(new Guitar("E456", 789.99, new GuitarSpec( "telecaster", Type.ELECTRIC, Wood.ALDER, Wood.MAHOGANY, Builder.MARTIN)));
+            inventory.addGuitar(new Guitar("A124", 569.99, new GuitarSpec( "stratocaster",Type.ACOUSTIC, Wood.ROSEWOOD, Wood.MAPLE, 5, Builder.FENDER))); //these are using the enum modifiers to where the attibutes can only be of a specific type
+            inventory.addGuitar(new Guitar("E456", 789.99, new GuitarSpec( "telecaster", Type.ELECTRIC, Wood.ALDER, Wood.MAHOGANY, 8, Builder.MARTIN)));
         }
 
     }
